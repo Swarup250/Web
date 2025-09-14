@@ -22,10 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-dashboard/vite.config.js
-dashboard/dashboard.code-workspace
-dashboard/eslint.config.js
-dashboard/package-lock.json
-dashboard/package.json
-dashboard/public
-Dash-board
+.dashboard/vite.config.js
+.dashboard/dashboard.code-workspace
+.dashboard/eslint.config.js
+.dashboard/package-lock.json
+.dashboard/package.json
+.dashboard/public
+.Dash-board
