@@ -22,7 +22,7 @@ function Timer() {
     const seconds = time % 60
     return (
     <>
-    <input value={workDur} min={1} type="number" onChange={(e) => setWorkDur(e.target.value)}></input>
+    <input value={workDur} min={1} max={120} type="number" onChange={(e) => setWorkDur(e.target.value)}></input>
     <div>Timer
         minute = {minute}
         seconds = {seconds};
