@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { ToDoProvider} from "./Context/index";
 
 function ToDoList() {
@@ -20,6 +20,17 @@ function ToDoList() {
     const toggleCompelete = (id) =>{
         setTodos((prev) => prev.map((prevTodo) => prevTodo === id ? {...prevTodo , completed : !prevTodo.completed}: prevTodo))
     }
+
+    useEffect( () =>{
+        JSON.parse(localStorage.getItem("todos"));
+        if(todos && todos.length >0){
+            setTodos(todos)
+        }
+    },[])
+
+    useEffect(() =>{
+        
+    },[todos])
     return (
     <ToDoProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleCompelete }}>
     <div className="bg-[#172842] min-h-screen py-8">
