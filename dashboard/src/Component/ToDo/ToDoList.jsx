@@ -2,7 +2,7 @@ import React,{useEffect, useState} from "react";
 import { ToDoProvider} from "../Context/index";
 import TodoForm from "./ToDoForm";
 import TodoItem from "./ToDoItem";
-
+import './App.css';
 function ToDoList() {
 
     const [todos,setTodos] = useState([])
@@ -16,7 +16,7 @@ function ToDoList() {
     }
 
     const deleteTodo = (id) =>{
-        setTodos((prev) => prev.filter((todo) => todo.id !== todo))
+        setTodos((prev) => prev.filter((todo) => todo.id !== id))
     }
 
     const toggleCompelete = (id) =>{
