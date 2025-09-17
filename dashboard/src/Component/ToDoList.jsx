@@ -22,15 +22,16 @@ function ToDoList() {
     }
 
     useEffect( () =>{
-        JSON.parse(localStorage.getItem("todos"));
+        const todos = JSON.parse(localStorage.getItem("todos"));
         if(todos && todos.length >0){
             setTodos(todos)
         }
     },[])
 
     useEffect(() =>{
-        
+        localStorage.setItem("todos", JSON.stringify(todos))
     },[todos])
+    
     return (
     <ToDoProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleCompelete }}>
     <div className="bg-[#172842] min-h-screen py-8">
