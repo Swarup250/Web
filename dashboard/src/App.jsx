@@ -3,7 +3,7 @@ import Weather from "./Component/Weather/Weather";
 import Clock from "./Component/Time/Clock";
 import Timer from "./Component/Time/Timer";
 import "./App.css";
-import TodoItem from "./Component/ToDo/ToDoItem";
+import ToDoList from "./Component/ToDo/ToDoList";
 function App() {
   return (
     <>
@@ -22,14 +22,10 @@ function App() {
             <Timer />
           </div>
           </div>
-          <div>
-            <div>
-              <TodoItem />
-
-            </div>
+              <ToDoList />
           </div>
         </div>
-      </div>
+        <ToDoList />
     </>
   );
 }

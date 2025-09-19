@@ -37,8 +37,8 @@ function ToDoList() {
     return (
     
     <ToDoProvider value={{todos, addTodo, updateTodo, deleteTodo, toggleCompelete }}>
-    <div className="bg-[#172842] min-h-screen py-8">
-        <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+    <div className="bg-[#172842] w-full py-8">
+        <div className="w-full h-30 mx-auto shadow-md rounded-lg px-4 py-3 text-white">
             <h1 className="text-2xl font-bold text-center mb-8 mt-2">
                 Manage Your Todos
             </h1>
@@ -47,7 +47,7 @@ function ToDoList() {
             </div>
             <div className="flex flex-wrap gap-y-3">
                 {todos.map((todo) => (
-                    <div key={todo.id} className="w-full">
+                    <div key={todo.id} className="w-full place-items-center">
                     <TodoItem todo={todo}/>
                     </div>
                 ))}
