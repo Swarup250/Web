@@ -25,19 +25,21 @@ function Weather() {
     }, []);
     
     return (
-        <div>
-            <h2>Weather Information</h2>
-            <div>Timezone: {weather.timezone || 'Loading...'}</div>
-            {weather.current ? (
-                <ul>
-                    <li>Apparent Temperature: {weather.current.apparent_temperature}°C</li>
-                    <li>Precipitation: {weather.current.precipitation} mm</li>
-                    <li>Wind Speed: {weather.current.wind_speed_10m} m/s</li>
-                </ul>
-            ) : (
-                <div>Loading weather data...</div>
-            )}
-        </div>
+        <>
+            <div>
+                <h2>Weather Information</h2>
+                <div >Timezone: {weather.timezone || 'Loading...'}</div>
+                {weather.current ? (
+                    <ul>
+                        <li>Apparent Temperature: {weather.current.apparent_temperature}°C</li>
+                        <li>Precipitation: {weather.current.precipitation} mm</li>
+                        <li>Wind Speed: {weather.current.wind_speed_10m} m/s</li>
+                    </ul>
+                ) : (
+                    <div>Loading weather data...</div>
+                )}
+            </div>
+        </>
     )
 }
 
