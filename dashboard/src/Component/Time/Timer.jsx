@@ -22,7 +22,8 @@ function Timer() {
     const seconds = time % 60
     return (
     <>
-    <input value={workDur} min={1} max={120} type="number" onChange={(e) => setWorkDur(e.target.value)}></input>
+    <input value={workDur} min={1} max={120} 
+    type="number" onChange={(e) => setWorkDur(e.target.value)}></input>
     <div>Timer
         minute = {minute}
         seconds = {seconds};
@@ -30,7 +31,8 @@ function Timer() {
     <div>
         <button onClick={() => setActive(true)}>Start</button>
         <button onClick={() => setActive(false)}>Pause</button>
-        <button onClick={() => setTime(25*60)}>Rest</button>
+        <button onClick={() => { setTime(25*60); setWorkDur(25); }}
+            >Rest</button>
     </div>
     </>
     )
