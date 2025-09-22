@@ -118,8 +118,8 @@ function TodoItem({ todo }) {
                     {/* Delete Button */}
                     <button
                         className="p-3 rounded-xl bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-lg shadow-red-500/30 
-                                 hover:shadow-xl transition-all duration-300 transform hover:scale-110 
-                                 focus:outline-none focus:ring-4 focus:ring-red-500/30"
+                                hover:shadow-xl transition-all duration-300 transform hover:scale-110 
+                                focus:outline-none focus:ring-4 focus:ring-red-500/30"
                         onClick={() => deleteTodo(todo.id)}
                         title="Delete task"
                     >
