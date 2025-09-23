@@ -3,71 +3,32 @@ import { useToDo } from '../Context';
 import './App.css';
 
 function TodoForm() {
-    const [todo, setTodo] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
-    const { addTodo } = useToDo();
+    const [todo , setTodo] = useState("");
+    const {addTodo} = useToDo();
     
-    const add = async (e) => {
+    const add = (e) =>{
         e.preventDefault()
-        
-        if (!todo.trim()) return;
-        
-        setIsLoading(true);
-        
-        // Simulate loading for better UX
-        setTimeout(() => {
-            addTodo({ todo: todo.trim(), completed: false });
-            setTodo("");
-            setIsLoading(false);
-        }, 200);
-    }
 
+        if(!todo) return;
+        addTodo({todo : todo , completed : false});
+        setTodo("");
+    }
+    
     return (
-        <form onSubmit={add} className="w-full">
-            <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-                <div className="relative flex-1">
-                    <input
-                        type="text"
-                        placeholder="What needs to be done? ✍️"
-                        className="w-full px-6 py-4 text-lg bg-white/90 backdrop-blur-sm border-2 border-transparent rounded-2xl 
-                                 focus:outline-none focus:ring-4 focus:ring-purple-500/30 focus:border-purple-400
-                                 placeholder-gray-500 text-gray-800 shadow-lg transition-all duration-300
-                                 hover:bg-white hover:shadow-xl"
-                        value={todo}
-                        onChange={(e) => setTodo(e.target.value)}
-                        disabled={isLoading}
-                    />
-                    {todo && (
-                        <button
-                            type="button"
-                            onClick={() => setTodo("")}
-                            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xl"
-                        >
-                            ✕
-                        </button>
-                    )}
-                </div>
-                
-                <button 
-                    type="submit" 
-                    disabled={!todo.trim() || isLoading}
-                    className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-2xl 
-                             shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105
-                             disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
-                             focus:outline-none focus:ring-4 focus:ring-purple-500/30 whitespace-nowrap"
-                >
-                    {isLoading ? (
-                        <span className="flex items-center gap-2">
-                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                            Adding...
-                        </span>
-                    ) : (
-                        <span className="flex items-center gap-2">
-                            ➕ Add Task
-                        </span>
-                    )}
-                </button>
-            </div>
+        <form onSubmit={add} className="flex justify-center gap-0 max-w-2xl mx-auto">
+            <input
+                type="text"
+                placeholder="Write Todo... ✍️"
+                className="w-9/12 border-2 border-white/20 rounded-l-2xl px-6 py-4 outline-none duration-300 bg-white/10 backdrop-blur-sm text-white placeholder-gray-300 text-lg font-medium shadow-lg focus:border-blue-400 focus:bg-white/20 focus:ring-4 focus:ring-blue-500/30 hover:bg-white/15 transition-all"
+                value={todo}
+                onChange={(e) =>setTodo(e.target.value)}
+            />
+            <button 
+                type="submit" 
+                className="rounded-r-2xl px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold text-lg shrink-0 shadow-lg hover:shadow-xl hover:from-green-600 hover:to-emerald-700 transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500/30 active:scale-95"
+            >
+                ➕ Add
+            </button>
         </form>
     );
 }
