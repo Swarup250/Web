@@ -18,10 +18,13 @@ export const todoSlice = createSlice({
                 text : action.payload.text,
             };
             state.todos.push(todo);
+
         },//also we get state and action it is syntax
+        
         removeTodo : (state,action) =>{
-            state.todos = state.todos.filter((todo) => todo.id !== action.payload.id)
+            state.todos = state.todos.filter((todo) => todo.id !== action.payload)
         },
+        
         upadateTodo : (state ,action) =>{
             state.todos = state.todos.map((todo) => 
             todo.id === action.payload.id 
@@ -29,9 +32,14 @@ export const todoSlice = createSlice({
             :todo
             )
         },
+        
         deleteTodo : (state,action) =>{
             state.todos = state.todos.filter((todo)=> todo.id !== action.payload)
         // here the state.todos is being deleted
         }
     }
 })
+
+export const {addTodo,upadateTodo,deleteTodo,removeTodo} = todoSlice.actions
+
+export default todoSlice.reducer
