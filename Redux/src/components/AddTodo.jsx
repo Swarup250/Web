@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {useDispatch} from 'react-redux'
-import { addTodo,deleteTodo,upadateTodo } from '../Feature/Todo/TodoSlice'
+import { addTodo} from '../Feature/Todo/TodoSlice'
 
 function AddTodo() {
 
