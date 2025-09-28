@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector , useDispatch } from 'react-redux'
 import { deleteTodo } from '../Feature/Todo/TodoSlice'
+import './Todo.css';
 
 function Todo() {
     const todos = useSelector(state => state.todos)
