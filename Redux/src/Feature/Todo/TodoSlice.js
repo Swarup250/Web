@@ -15,7 +15,7 @@ export const todoSlice = createSlice({
         addTodo : (state ,action) =>{
             const todo = {
                 id:nanoid(),// this is used for  payload.id and the state.id
-                text : action.payload.text,
+                text : action.payload,
             };
             state.todos.push(todo);
 
