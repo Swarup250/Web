@@ -27,40 +27,40 @@ function Todo() {
   return (
     <>
       {/* Title for todo section */}
-      <div>Todos</div>
+    <div>Todos</div>
       {/* Create an unordered list for all todos */}
-      <ul className="list-none">
+    <ul className="list-none">
         {/* Iterate over todos and render each as a list item */}
         {todos.map((todo) => (
-          <li
+        <li
             className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
             // Use todo id as key for React rendering
             key={todo.id}
-          >
+            >
             {/* Show input field only if this todo is being edited */}
             {editableTodoId === todo.id ? (
-              <input
+                <input
                 type="text"
                 // Controlled input value from state
                 value={editableText}
                 // Update editableText on every keystroke
                 onChange={(e) => setEditableText(e.target.value)}
                 className="text-amber-700"
-              />
+                />
             ) : (
               // Show todo text, styled if completed
-              <span
+                <span
                 className={`text-lg ${
-                  todo.completed ? "line-through text-gray-400" : ""
+                    todo.completed ? "line-through text-gray-400" : ""
                 }`}
-              >
+                >
                 {todo.text}
-              </span>
+                </span>
             )}
 
             {/* Edit or save button for each todo */}
             <button
-              className={`inline-flex w-12 h-12 rounded-xl text-lg border-2 justify-center items-center font-bold shrink-0 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 shadow-lg ${
+                className={`inline-flex w-12 h-12 rounded-xl text-lg border-2 justify-center items-center font-bold shrink-0 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 shadow-lg ${
                 // Style changes if todo completed or in edit mode
                 todo.completed
                     ? "bg-gray-200 border-gray-300 cursor-not-allowed opacity-50"
