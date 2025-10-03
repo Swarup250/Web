@@ -33,7 +33,7 @@ function Timer() {
                         min={1} 
                         max={120} 
                         type="number" 
-                        onChange={(e) => setWorkDur(e.target.value)}
+                        onChange={(e) => setWorkDur(Number(e.target.value >= 121 ? 120 : e.target.value ))}
                         className="w-24 px-4 py-2 text-center text-xl font-bold border-2 border-slate-600 rounded-lg focus:border-cyan-400 focus:outline-none bg-slate-700 text-white hover:bg-slate-600 transition-all duration-200"
                     />
                 </div>
