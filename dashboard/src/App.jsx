@@ -6,27 +6,24 @@ import "./App.css";
 import ToDoList from "./Component/ToDo/ToDoList";
 function App() {
   return (
-    <>
-      <div className="h-screen w-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex justify-center place-items-center flex-wrap">
-        <div className=" lg:h-9/12 lg:w-10/12 md:h-10/12 md:w-11/12 h-8/12 w-9/12 bg-white opacity-60 rounded-4x overflow-hidden ">
-          <div className="h-full w- full flex flex-row">
-          <div className="h-50 w-3/12  bg-amber-300">
-            <Weather />
-          </div>
-          <div className="h-50 w-3/12 bg-amber-300">
-            <h3>Curret Time</h3>
-            <Clock />
-          </div>
-          <div className="h-50 w-3/12  bg-amber-300">
-            <h3>Timer</h3>
-            <Timer />
-          </div>
-          </div>
-              <ToDoList />
-          </div>
+    <div className="h-screen w-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex justify-center items-center flex-wrap">
+      <div className="h-[800px] w-[900px] bg-white opacity-60 rounded-4xl overflow-hidden flex flex-row flex-wrap justify-around items-start p-8 gap-6">
+        <div className="w-[300px] min-h-[340px] rounded-2xl bg-amber-300 shadow-lg p-4">
+          <Weather />
         </div>
-        <ToDoList />
-    </>
+        <div className="w-[300px] min-h-[160px] rounded-2xl bg-amber-300 shadow-lg p-4 flex flex-col items-center">
+          <h3 className="mb-2 text-lg font-bold">Current Time</h3>
+          <Clock />
+        </div>
+        <div className="w-[300px] min-h-[240px] rounded-2xl bg-amber-300 shadow-lg p-4 flex flex-col items-center">
+          <h3 className="mb-2 text-lg font-bold">Timer</h3>
+          <Timer />
+        </div>
+        <div className="w-full mt-6">
+          <ToDoList />
+        </div>
+      </div>
+    </div>
   );
 }
 
