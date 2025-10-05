@@ -1,8 +1,8 @@
-
+import config from './conf/conf'
 import './App.css'
 
 function App() {
-  console.log(import.meta.env.REACT_APP_APPWRITE_URL)
+  console.log(config)
   return (
     <div>Hello World</div>
   )
