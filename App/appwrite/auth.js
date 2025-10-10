@@ -18,7 +18,7 @@ async function createAccount({email ,password ,name}) {
         const userAccount = await this.account.create(ID.unique(),email,password,name)
         // Check if the user account was successfully created
         if(userAccount){
-            return 
+            return this.login({email,password})
         }
         else{
 
@@ -30,6 +30,12 @@ async function createAccount({email ,password ,name}) {
         return error;
     }
 }
-
+async function login ({email,password}) {
+    try {
+        return await this.account.createEmailSession(email,password);
+    } catch (error) {
+        console.log(error)
+    }
+} 
 const authService = new AuthService()
 export default authService
