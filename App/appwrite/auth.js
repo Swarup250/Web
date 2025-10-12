@@ -10,9 +10,9 @@ export class AuthService {
             .setProject(conf.appwriteProjectId);
             this.account = new Account(this.client)
     }
-}
 
-async function createAccount({email ,password ,name}) {
+
+async createAccount({email ,password ,name}) {
     try{
          // Create a new user account with a unique ID, email, password, and name.
         const userAccount = await this.account.create(ID.unique(),email,password,name)
@@ -21,7 +21,6 @@ async function createAccount({email ,password ,name}) {
             return this.login({email,password})
         }
         else{
-
             return userAccount;
         }
     }
@@ -29,13 +28,35 @@ async function createAccount({email ,password ,name}) {
         // Return the caught error if account creation fails
         return error;
     }
+
 }
-async function login ({email,password}) {
+
+async  login ({email,password}) {
     try {
         return await this.account.createEmailSession(email,password);
     } catch (error) {
         console.log(error)
     }
+
 } 
+
+async  getCurrentUser() {
+    try{
+        return await this.account.get();
+    } catch(error){
+        console.log(error);
+    }
+    return null;
+
+}
+
+async logout(){
+    try{
+        return await this.account.deleteSessions()
+    } catch(error){
+        console.log(error)
+    }
+}
+}
 const authService = new AuthService()
 export default authService
