@@ -24,6 +24,21 @@ export class Service{
             console.log(error);
         }
     }
+
+    async upadatePost(slug,{title,content,FearturedImage,status}){
+        try {
+            this.databases.updateDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+                {
+                    title,content,FearturedImage,status 
+                }
+            )
+        } catch (error) {
+            console.log(error);
+        }
+    }    
 }
 const service = new Service()
 export default service 
