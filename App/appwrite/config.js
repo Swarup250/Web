@@ -1,10 +1,10 @@
-import conf from "./config.js"
+import conf from "../src/conf/conf"
 import {Client, ID, Databases ,Storage ,Query} from "appwrite"
 
 export class Service{
-    client = new Client(),
-    databases,
-    bucket,
+    client = new Client();
+    databases;
+    bucket;
     constructor(){
         this.client
             .setEndpoint(conf.appwriteUrl)
@@ -39,6 +39,52 @@ export class Service{
             console.log(error);
         }
     }    
-}
+
+    async deltePost(slug){
+        try {
+            await this.databases.deleteDocument(
+                    conf.appwriteDatabaseId,
+                    conf.appwriteCollectionId,
+                    slug
+            )
+            return true;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    async getPost(slug){
+        try {
+            await this.databases.getDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug
+            )
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async deleteFile(fileId){
+        try {
+            await this.bucket.deleteFile(
+                conf.appwriteBucketId,
+                fileId
+            )
+            return true;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
+
+    getPreview(fileId){
+        return this.bucket.getFilePreview(
+            conf.appwriteBucketId,
+            fileId,
+        )
+    }
+} 
 const service = new Service()
 export default service 
