@@ -1,6 +1,6 @@
-import config from './conf/conf'
+import conf from "./conf/conf"
 import './App.css'
-import authService from "../appwrite/auth"
+import authService from "./appwrite/auth"
 import { login,logout } from './Store/authSlice'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
