@@ -1,5 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-export const store = configureStore({
-    reducer : {}
+const dummmyRed = (state = {}) => state; //this is to hide error.//
+const store = configureStore({
+    reducer : {
+        dummmy :dummmyRed
+    }
 });
+
+export default store

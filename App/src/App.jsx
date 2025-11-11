@@ -1,4 +1,6 @@
 import './App.css'
+import Header from "./components/header/Header"
+import Footer from "./components/footer/Footer"
 import authService from "./appwrite/auth"
 import { login,logout } from './Store/authSlice'
 import { useEffect, useState } from 'react'
@@ -19,10 +21,18 @@ function App() {
     })
     .catch((e) => console.log(e))
     .finally(() => setLoading(false))
-    },[])
+    },[dispatch])
 
   return !loading ? (
-    <div className='h-screen w-screen '>Pls Login first!! </div>
+    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+      <div className='w-full block'>
+        <Header />
+        <main>
+          Todo:{/* <Outlet /> */}
+        </main>
+        <Footer />
+      </div>
+    </div>
   ) : (null)
 }
 
