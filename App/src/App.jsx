@@ -1,4 +1,3 @@
-import conf from "./conf/conf"
 import './App.css'
 import authService from "./appwrite/auth"
 import { login,logout } from './Store/authSlice'
